@@ -17,3 +17,24 @@ const slides = [
 	}
 ]
 
+var arrowLeft = document.querySelector(".arrow_left");
+var arrowRight = document.querySelector(".arrow_right");
+
+function flecheGauche() {
+console.log("fleche gauche");
+}
+
+function flecheDroite() {
+console.log("fleche droite");
+}
+
+arrowLeft.addEventListener("click", flecheGauche);
+arrowRight.addEventListener("click", flecheDroite);
+
+function addPoint() {
+	var dot = document.createElement("span");
+	dot.classList = ["dot"];
+	document.querySelector(".dots").appendChild( document.createElement("span"));
+
+
+}
