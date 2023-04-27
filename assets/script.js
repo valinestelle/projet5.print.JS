@@ -20,6 +20,7 @@ const slides = [
 const bannerImg = document.querySelector('.banner-img');
 const tagLine = document.querySelector("p", "span");
 let indexSlide = 0;
+
 function ChangeSlide(sens) {
 	indexSlide = indexSlide + sens;
 	if(indexSlide > slides.length - 1)
@@ -30,7 +31,7 @@ function ChangeSlide(sens) {
 	tagLine.innerHTML = slides[indexSlide].tagLine;
 }
 
-setInterval("ChangeSlide(1)", 4000);
+setInterval("ChangeSlide(1)", 5000);
 
 
 function addPoint() {
