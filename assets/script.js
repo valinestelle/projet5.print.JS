@@ -17,24 +17,31 @@ const slides = [
 	}
 ]
 
-var arrowLeft = document.querySelector(".arrow_left");
-var arrowRight = document.querySelector(".arrow_right");
-
-function flecheGauche() {
-console.log("fleche gauche");
+const bannerImg = document.querySelector('.banner-img');
+const tagLine = document.querySelector("p", "span");
+let indexSlide = 0;
+function ChangeSlide(sens) {
+	indexSlide = indexSlide + sens;
+	if(indexSlide > slides.length - 1)
+	   indexSlide = 0;
+	if(indexSlide < 0)
+	   indexSlide = slides.length - 1;
+	bannerImg.src = "./assets/images/slideshow/" + slides[indexSlide].image;
+	tagLine.innerHTML = slides[indexSlide].tagLine;
 }
 
-function flecheDroite() {
-console.log("fleche droite");
-}
+setInterval("ChangeSlide(1)", 4000);
 
-arrowLeft.addEventListener("click", flecheGauche);
-arrowRight.addEventListener("click", flecheDroite);
 
 function addPoint() {
+	for (let  i = 0; i < 4; i++) {	
 	var dot = document.createElement("span");
 	dot.classList = ["dot"];
-	document.querySelector(".dots").appendChild( document.createElement("span"));
-
-
+	document.querySelector(".dots").appendChild( dot);
+	}
 }
+addPoint();
+
+
+
+
