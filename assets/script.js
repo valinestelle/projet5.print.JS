@@ -41,7 +41,13 @@ function addPoint() {
 	document.querySelector(".dots").appendChild( dot);
 	}
 }
+
 addPoint();
+
+let dot = document.querySelectorAll('.dot');
+dot[0].classList.add('dot_selected');
+document.querySelector(".dots").appendChild( dot_selected);
+
 
 
 
