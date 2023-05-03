@@ -18,35 +18,39 @@ const slides = [
 ]
 
 const bannerImg = document.querySelector('.banner-img');
-const tagLine = document.querySelector("p", "span");
+const tagLine = document.querySelector("#tagLine");
 let indexSlide = 0;
 
 function ChangeSlide(sens) {
+	let dot = document.querySelectorAll('.dot');
+    dot[indexSlide].classList.remove('dot_selected');
+
 	indexSlide = indexSlide + sens;
-	if(indexSlide > slides.length - 1)
+	if(indexSlide > slides.length - 1) {
 	   indexSlide = 0;
-	if(indexSlide < 0)
+	}
+	if(indexSlide < 0) {
 	   indexSlide = slides.length - 1;
+	}
 	bannerImg.src = "./assets/images/slideshow/" + slides[indexSlide].image;
 	tagLine.innerHTML = slides[indexSlide].tagLine;
+	dot[indexSlide].classList.add('dot_selected');
 }
 
-setInterval("ChangeSlide(1)", 5000);
-
-
 function addPoint() {
-	for (let  i = 0; i < 4; i++) {	
-	var dot = document.createElement("span");
+	for (let  i = 0; i < slides.length; i++) {	
+	let dot = document.createElement("span");
 	dot.classList = ["dot"];
 	document.querySelector(".dots").appendChild( dot);
 	}
+	document.querySelector(".dots").firstElementChild.classList.add('dot_selected');
 }
 
 addPoint();
 
-let dot = document.querySelectorAll('.dot');
-dot[0].classList.add('dot_selected');
-document.querySelector(".dots").appendChild( dot_selected);
+document.querySelector(".arrow_left").addEventListener("click", () => { ChangeSlide(-1) });
+document.querySelector(".arrow_right").addEventListener("click", () => { ChangeSlide(1) });
+
 
 
 
